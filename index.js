@@ -64,13 +64,12 @@ app.get("/", (req, res) => {
 // } )
 
 const connection = mysql.createConnection({
-    database: "bcuw2zngebmpdaqofd9z",
     host: "bcuw2zngebmpdaqofd9z-mysql.services.clever-cloud.com",
+    user: "udepn9lhel4o0igh",
     password: "GNe1y2vIG9FNo3JNsHpw",
-    port: "3306", // Puede que necesites cambiar esto por el puerto correcto de tu base de datos
-    user: "udepn9lhel4o0igh"
-});
-
+    database: "bcuw2zngebmpdaqofd9z",
+    port: 3306
+  });
 // Establecer la conexión
 connection.connect((err) => {
     if (err) {
