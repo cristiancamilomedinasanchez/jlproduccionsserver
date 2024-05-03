@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const mysql = require("mysql")
 const port = 4000
+const cors = require("cors")
 const corsOptions = {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
