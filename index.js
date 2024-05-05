@@ -29,6 +29,9 @@ const connection = mysql.createConnection({
     database: "bcuw2zngebmpdaqofd9z",
     port: 3306
   });
+
+
+  
 // Establecer la conexión
 connection.connect((err) => {
     if (err) {
@@ -38,9 +41,15 @@ connection.connect((err) => {
     console.log('Conexión a la base de datos establecida');
 });
 
+
+
+
 app.get("/", (req, res) => {
     res.send("Servidor jlProduccions funcionando");
 });
+
+
+
 
 // Enviar reseñas al frontend
 app.get("/getReseña", (req, res) => {
@@ -57,6 +66,10 @@ app.get("/getReseña", (req, res) => {
     });
 });
 
+
+
+
+
 // Traer reseñas del frontend y enviar a la base de datos
 // Ruta para recibir las reseñas
 app.post('/postResena', (req, res) => {
@@ -64,7 +77,7 @@ app.post('/postResena', (req, res) => {
     
     // Insertar la reseña en la base de datos
     const sql = `INSERT INTO resenas (name, resena) VALUES (?, ?)`;
-    db.query(sql, [name, resena], (err, result) => {
+ connection.query(sql, [name, resena], (err, result) => {
       if (err) {
         console.error('Error al insertar la reseña:', err);
         res.status(500).send('Error al insertar la reseña');
