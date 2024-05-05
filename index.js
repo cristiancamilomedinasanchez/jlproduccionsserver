@@ -31,7 +31,7 @@ const connection = mysql.createConnection({
   });
 
 
-  
+
 // Establecer la conexión
 connection.connect((err) => {
     if (err) {
@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 
 
 // Enviar reseñas al frontend
-app.get("/getReseña", (req, res) => {
+app.get("/getResena", (req, res) => {
     const sql = "SELECT * FROM resenas";
 
     // Ejecutar la consulta SQL
@@ -70,8 +70,6 @@ app.get("/getReseña", (req, res) => {
 
 
 
-// Traer reseñas del frontend y enviar a la base de datos
-// Ruta para recibir las reseñas
 app.post('/postResena', (req, res) => {
     const { name, resena } = req.body;
     
