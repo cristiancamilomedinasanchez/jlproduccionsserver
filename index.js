@@ -10,7 +10,7 @@ const corsOptions = {
   };
   
   app.use(cors(corsOptions));
-  app.use(bodyParser.json());
+  app.use(express.json());
 
 app.listen(port, () => {
     console.log("base de datos jlproduccions conected")
