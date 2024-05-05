@@ -10,7 +10,7 @@ const corsOptions = {
   };
   
   app.use(cors(corsOptions));
-app.use(express.json())
+  app.use(bodyParser.json());
 
 app.listen(port, () => {
     console.log("base de datos jlproduccions conected")
@@ -58,17 +58,21 @@ app.get("/getReseña", (req, res) => {
 });
 
 // Traer reseñas del frontend y enviar a la base de datos
-app.post("/postReseña", (req, res) => {
+// Ruta para recibir las reseñas
+app.post('/postResena', (req, res) => {
     const { name, resena } = req.body;
-
-    const sql = 'INSERT INTO resenas (name, resena) VALUES (?, ?)';
-    connection.query(sql, [name, resena], (error, resultados) => {
-        if (error) {
-            console.error('Error al insertar reseña en la base de datos:', error);
-            res.status(500).send('Error al insertar reseña en la base de datos');
-            return;
-        }
-        console.log('Reseña insertada correctamente en la base de datos');
-        res.status(200).send('Reseña insertada correctamente en la base de datos');
+    
+    // Insertar la reseña en la base de datos
+    const sql = `INSERT INTO resenas (name, resena) VALUES (?, ?)`;
+    db.query(sql, [name, resena], (err, result) => {
+      if (err) {
+        console.error('Error al insertar la reseña:', err);
+        res.status(500).send('Error al insertar la reseña');
+      } else {
+        console.log('Reseña añadida con éxito');
+        res.status(200).send('Reseña añadida con éxito');
+      }
     });
-});
+  });
+  
+ 
