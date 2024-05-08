@@ -23,10 +23,10 @@ app.get("/", (req, res) => {
 
 
 const connection = mysql.createConnection({
-    host: "bcuw2zngebmpdaqofd9z-mysql.services.clever-cloud.com",
-    user: "udepn9lhel4o0igh",
-    password: "GNe1y2vIG9FNo3JNsHpw",
-    database: "bcuw2zngebmpdaqofd9z",
+    host: "brbepiladuxmexzmujyr-mysql.services.clever-cloud.com",
+    user: "uc3svp3nb0xpwk2q",
+    password: "iqdscD6gQeGu8OgHueme",
+    database: "brbepiladuxmexzmujyr",
     port: 3306
   });
 
